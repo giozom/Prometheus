@@ -33,17 +33,16 @@ namespace Prometheus.Tests
             BrowserHelper.Browser = mockBrowser.Object;
             BrowserHelper.Start();
             mockBrowser.Verify(browser => browser.BringToFront(), Times.Once());
-  
         }
 
         [Test]
-        public void GotoPageShouldReturnAPage()
+        public void OnPageShouldPassInTheBrowser()
         {
             var mockBrowser = new Mock<Browser>();
             BrowserHelper.Browser = mockBrowser.Object;
             BrowserHelper.Start();
             var returnedPage = BrowserHelper.GoToPage<TestPage>();
-            Assert.That(returnedPage, Is.InstanceOf<TestPage>());
+            Assert.That(returnedPage.Browser, Is.EqualTo(mockBrowser.Object));
         }
 
         [Test]

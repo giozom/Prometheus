@@ -14,5 +14,18 @@ namespace Prometheus
             }
             Browser.BringToFront();
         }
+
+        public static TPage GoToPage<TPage>() where TPage : BasePage, new()
+        {
+            Browser.GoTo(new TPage {Browser = Browser}.Url);
+            return OnPage<TPage>();
+        }
+
+        public static TPage OnPage<TPage>() where TPage : BasePage, new()
+        {
+            var page = new TPage {Browser = Browser};
+            page.Browser = Browser;
+            return page;
+        }
     }
 }

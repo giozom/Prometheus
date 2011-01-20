@@ -12,13 +12,13 @@ namespace Prometheus.Example.Features
         [Given(@"I'm on the google australia search page")]
         public void GivenImOnTheGoogleAustraliaSearchPage()
         {            
-           BrowserHelper.Browser.GoTo("http://www.google.com.au");
+           BrowserHelper.GoToPage<GoogleSearchPage>();
         }
 
         [When(@"I search for ""(.*)""")]
         public void WhenISearchFor(string searchQuery)
         {
-            new GoogleSearchPage().Search(searchQuery);
+            BrowserHelper.OnPage<GoogleSearchPage>().Search(searchQuery);
         }
 
         [Then(@"the results page title should be ""(.*)""")]
