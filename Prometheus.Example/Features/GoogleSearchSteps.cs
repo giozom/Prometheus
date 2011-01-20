@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using Prometheus.Example.Pages;
 using TechTalk.SpecFlow;
 using WatiN.Core;
 
@@ -17,8 +18,7 @@ namespace Prometheus.Example.Features
         [When(@"I search for ""(.*)""")]
         public void WhenISearchFor(string searchQuery)
         {
-            NastyStaticThing.Ie.TextField(Find.ByName("q")).TypeText(searchQuery);
-            NastyStaticThing.Ie.Button(Find.ByName("btnG")).Click();
+            new GoogleSearchPage().Search(searchQuery);
         }
 
         [Then(@"the results page title should be ""(.*)""")]
