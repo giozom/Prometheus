@@ -12,7 +12,7 @@ namespace Prometheus.Example.Features
         [Given(@"I'm on the google australia search page")]
         public void GivenImOnTheGoogleAustraliaSearchPage()
         {            
-           NastyStaticThing.Ie.GoTo("http://www.google.com.au");
+           BrowserHelper.Browser.GoTo("http://www.google.com.au");
         }
 
         [When(@"I search for ""(.*)""")]
@@ -24,7 +24,7 @@ namespace Prometheus.Example.Features
         [Then(@"the results page title should be ""(.*)""")]
         public void ThenTheResultsPageTitleShouldBe(string expectedTitle)
         {
-            Assert.That(NastyStaticThing.Ie.Title, Is.EqualTo(expectedTitle));
+            Assert.That(BrowserHelper.Browser.Title, Is.EqualTo(expectedTitle));
         }
     }
 }

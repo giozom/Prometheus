@@ -9,13 +9,13 @@ namespace Prometheus.Example.Features
         [SetUp]
         public void SetUp()
         {
-            NastyStaticThing.Ie = new IE();
+            BrowserHelper.Start();
         }
 
         [TearDown]
         public void TearDown()
         {
-            NastyStaticThing.Close();
+            BrowserHelper.Browser.Close();
         }
     }
 }
