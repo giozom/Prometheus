@@ -65,6 +65,15 @@ namespace Prometheus.Tests
             mockBrowser.Verify(browser => browser.GoTo(new Uri(@"http://www.fake-url.com")), Times.Once());
         }
 
+        [Test]
+        public void ShouldPassArgumentsOnToTheUrlMethod()
+        {
+            var mockBrowser = new Mock<Browser>();
+            BrowserHelper.Browser = mockBrowser.Object;
+            BrowserHelper.Start();
+            BrowserHelper.GoToPage<UrlParamPage>("hello");
+            mockBrowser.Verify(browser => browser.GoTo(new Uri(@"http://www.fake-url.com?input=hello")), Times.Once());
+        }
 
     }
 }

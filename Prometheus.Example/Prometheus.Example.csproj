@@ -62,6 +62,7 @@
     </Compile>
     <Compile Include="Features\GoogleSearchSteps.cs" />
     <Compile Include="Features\TestSetupAndTearDown.cs" />
+    <Compile Include="Pages\GoogleResultsPage.cs" />
     <Compile Include="Pages\GoogleSearchPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -1,7 +1,7 @@
-﻿using NUnit.Framework;
+﻿using System.Threading;
+using NUnit.Framework;
 using Prometheus.Example.Pages;
 using TechTalk.SpecFlow;
-using WatiN.Core;
 
 namespace Prometheus.Example.Features
 {
@@ -24,7 +24,11 @@ namespace Prometheus.Example.Features
         [Then(@"the results page title should be ""(.*)""")]
         public void ThenTheResultsPageTitleShouldBe(string expectedTitle)
         {
-            Assert.That(BrowserHelper.Browser.Title, Is.EqualTo(expectedTitle));
+            var googleResultsPage = BrowserHelper.OnPage<GoogleResultsPage>();
+            var actualTitle = BrowserHelper.Browser.Title;
+            var expectedEnding = googleResultsPage.ExpectedTitle();
+
+            Assert.True(actualTitle.EndsWith(expectedEnding), "Title '{0}' doesn't end with the expected ending '{1}'", actualTitle, expectedEnding);
         }
     }
 }

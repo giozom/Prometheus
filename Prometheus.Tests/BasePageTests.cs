@@ -11,16 +11,15 @@ namespace Prometheus.Tests
         public void ShouldUseThePageObjectsUrl()
         {
             var testPage = new TestPage();
-            Assert.That(testPage.Url, Is.EqualTo(new Uri(@"http://www.fake-url.com")));
+            Assert.That(testPage.Url(), Is.EqualTo(new Uri(@"http://www.fake-url.com")));
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "'Prometheus.Tests.TestFixtures.BlankPage' Does Not have a URL.")]
+        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "'Prometheus.Tests.TestFixtures.BlankPage' Does Not have a 'Url' property.")]
         public void ShouldThrowAnExceptionIfUrlNotOverridedInThePageObject()
         {
             var blankPage = new BlankPage();
-            var notUsed = blankPage.Url;
+            var notUsed = blankPage.Url();
         }
-
     }
 }
