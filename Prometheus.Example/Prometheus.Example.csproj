@@ -61,6 +61,7 @@
       <DependentUpon>GoogleSearch.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\GoogleSearchSteps.cs" />
+    <Compile Include="Features\TestSetupAndTearDown.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
