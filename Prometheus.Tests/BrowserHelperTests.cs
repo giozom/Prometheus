@@ -66,7 +66,17 @@ namespace Prometheus.Tests
         }
 
         [Test]
-        public void ShouldPassArgumentsOnToTheUrlMethod()
+        public void ShouldCallThePagesValidMethod()
+        {
+            var mockBrowser = new Mock<Browser>();
+            BrowserHelper.Browser = mockBrowser.Object;
+            BrowserHelper.Start();
+            var testPage = BrowserHelper.OnPage<TestPage>();
+            Assert.That(testPage.NumberOfTimesVaildCalled, Is.EqualTo(1));
+        }
+
+        [Test]
+        public void GotoPageShouldPassArgumentsOnToTheUrlMethod()
         {
             var mockBrowser = new Mock<Browser>();
             BrowserHelper.Browser = mockBrowser.Object;
@@ -75,5 +85,14 @@ namespace Prometheus.Tests
             mockBrowser.Verify(browser => browser.GoTo(new Uri(@"http://www.fake-url.com?input=hello")), Times.Once());
         }
 
+        [Test]
+        [ExpectedException(typeof(PageNotValidException), ExpectedMessage = "Page 'Prometheus.Tests.TestFixtures.InvalidPage' is invalid.")]
+        public void ShouldThrowAnExceptionWithAnInvalidPage()
+        {
+            var mockBrowser = new Mock<Browser>();
+            BrowserHelper.Browser = mockBrowser.Object;
+            BrowserHelper.Start();
+            BrowserHelper.OnPage<InvalidPage>();
+        } 
     }
 }

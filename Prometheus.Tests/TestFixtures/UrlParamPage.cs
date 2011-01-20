@@ -14,5 +14,7 @@ namespace Prometheus.Tests.TestFixtures
 
             return new Uri(String.Format("http://www.fake-url.com?input={0}", args[0]));
         }
+
+        public override bool Valid() { return true; }
     }
 }

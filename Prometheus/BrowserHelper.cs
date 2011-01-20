@@ -1,4 +1,5 @@
-﻿using WatiN.Core;
+﻿using System;
+using WatiN.Core;
 
 namespace Prometheus
 {
@@ -25,7 +26,13 @@ namespace Prometheus
         {
             var page = new TPage {Browser = Browser};
             page.Browser = Browser;
+            if (page.Valid() != true)
+            {
+                throw new PageNotValidException(String.Format("Page '{0}' is invalid.", page.GetType().FullName));
+            }
             return page;
         }
     }
+
+
 }

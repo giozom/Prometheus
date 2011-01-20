@@ -13,6 +13,11 @@ namespace Prometheus.Example.Pages
             return new Uri(String.Format("http://google.com.au/search?q={0}", args[0]));
         }
 
+        public override bool Valid()
+        {
+            return true;
+        }
+
         public string ExpectedTitle()
         {
            return " - Google Search";

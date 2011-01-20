@@ -11,5 +11,7 @@ namespace Prometheus
         {
             throw new NotImplementedException(string.Format("'{0}' Does Not have a 'Url' property.", GetType().FullName)); 
         }
+
+        public abstract bool Valid();
     }
 }

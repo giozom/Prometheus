@@ -13,6 +13,11 @@ namespace Prometheus.Example.Pages
             return new Uri(@"http://www.google.com.au");
         }
 
+        public override bool Valid()
+        {
+            return true;
+        }
+
         public void Search(string searchQuery)
         {
             TextBoxSearch.TypeText(searchQuery);

@@ -54,6 +54,7 @@
     <Compile Include="BrowserHelperTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestFixtures\BlankPage.cs" />
+    <Compile Include="TestFixtures\InvalidPage.cs" />
     <Compile Include="TestFixtures\TestPage.cs" />
     <Compile Include="TestFixtures\UrlParamPage.cs" />
   </ItemGroup>
