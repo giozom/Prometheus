@@ -1,5 +1,7 @@
-﻿using Moq;
+﻿using System;
+using Moq;
 using NUnit.Framework;
+using Prometheus.Tests.TestFixtures;
 using WatiN.Core;
 
 namespace Prometheus.Tests
@@ -7,7 +9,6 @@ namespace Prometheus.Tests
     [TestFixture]
     public class BrowserHelperTests
     {
-
         [Test]
         public void ShouldSetTheBrowser()
         {
@@ -34,6 +35,37 @@ namespace Prometheus.Tests
             mockBrowser.Verify(browser => browser.BringToFront(), Times.Once());
   
         }
+
+        [Test]
+        public void GotoPageShouldReturnAPage()
+        {
+            var mockBrowser = new Mock<Browser>();
+            BrowserHelper.Browser = mockBrowser.Object;
+            BrowserHelper.Start();
+            var returnedPage = BrowserHelper.GoToPage<TestPage>();
+            Assert.That(returnedPage, Is.InstanceOf<TestPage>());
+        }
+
+        [Test]
+        public void OnPageShouldReturnAPage()
+        {
+            var mockBrowser = new Mock<Browser>();
+            BrowserHelper.Browser = mockBrowser.Object;
+            BrowserHelper.Start();
+            var returnedPage = BrowserHelper.OnPage<TestPage>();
+            Assert.That(returnedPage, Is.InstanceOf<TestPage>());
+        }
+
+        [Test]
+        public void GotoShouldSendTheBrowserTheUrlOfThePage()
+        {
+            var mockBrowser = new Mock<Browser>();
+            BrowserHelper.Browser = mockBrowser.Object;
+            BrowserHelper.Start();
+            BrowserHelper.GoToPage<TestPage>();
+            mockBrowser.Verify(browser => browser.GoTo(new Uri(@"http://www.fake-url.com")), Times.Once());
+        }
+
 
     }
 }
