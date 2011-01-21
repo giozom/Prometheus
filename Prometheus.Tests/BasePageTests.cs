@@ -21,5 +21,13 @@ namespace Prometheus.Tests
             var blankPage = new BlankPage();
             var notUsed = blankPage.Url();
         }
+
+        [Test]
+        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "'Prometheus.Tests.TestFixtures.BlankPage' Does Not have a 'ExpectedTitle' property.")]
+        public void ShouldThrowAnExceptionIfTitleNotOverridedInThePageObject()
+        {
+            var blankPage = new BlankPage();
+            var notUsed = blankPage.ExpectedTitle;
+        }
     }
 }

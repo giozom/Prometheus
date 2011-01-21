@@ -4,7 +4,7 @@ namespace Prometheus.Example.Pages
 {
     public class GoogleResultsPage : BasePage
     {
-        public override System.Uri Url(params string[] args)
+        public override Uri Url(params string[] args)
         {
             if (args.Length != 1)
             {
