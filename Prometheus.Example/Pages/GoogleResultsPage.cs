@@ -17,10 +17,7 @@ namespace Prometheus.Example.Pages
         {
             return true;
         }
+        public override string ExpectedTitle { get { return " - Google Search"; } }
 
-        public string ExpectedTitle()
-        {
-           return " - Google Search";
-        }
     }
 }

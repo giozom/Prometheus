@@ -9,6 +9,7 @@ namespace Prometheus.Tests
     [TestFixture]
     public class BrowserHelperTests
     {
+        
         [Test]
         public void ShouldSetTheBrowser()
         {
@@ -22,17 +23,7 @@ namespace Prometheus.Tests
         {
             var mockBrowser = new Mock<Browser>().Object;
             BrowserHelper.Browser = mockBrowser;
-            BrowserHelper.Start();
             Assert.That(BrowserHelper.Browser, Is.EqualTo(mockBrowser));   
-        }
-
-        [Test]
-        public void ShouldBringTheBrowserToFrontWhenStarted()
-        {
-            var mockBrowser = new Mock<Browser>();
-            BrowserHelper.Browser = mockBrowser.Object;
-            BrowserHelper.Start();
-            mockBrowser.Verify(browser => browser.BringToFront(), Times.Once());
         }
 
         [Test]
@@ -40,7 +31,6 @@ namespace Prometheus.Tests
         {
             var mockBrowser = new Mock<Browser>();
             BrowserHelper.Browser = mockBrowser.Object;
-            BrowserHelper.Start();
             var returnedPage = BrowserHelper.GoToPage<TestPage>();
             Assert.That(returnedPage.Browser, Is.EqualTo(mockBrowser.Object));
         }
@@ -50,7 +40,6 @@ namespace Prometheus.Tests
         {
             var mockBrowser = new Mock<Browser>();
             BrowserHelper.Browser = mockBrowser.Object;
-            BrowserHelper.Start();
             var returnedPage = BrowserHelper.OnPage<TestPage>();
             Assert.That(returnedPage, Is.InstanceOf<TestPage>());
         }
@@ -60,7 +49,6 @@ namespace Prometheus.Tests
         {
             var mockBrowser = new Mock<Browser>();
             BrowserHelper.Browser = mockBrowser.Object;
-            BrowserHelper.Start();
             BrowserHelper.GoToPage<TestPage>();
             mockBrowser.Verify(browser => browser.GoTo(new Uri(@"http://www.fake-url.com")), Times.Once());
         }
@@ -70,7 +58,6 @@ namespace Prometheus.Tests
         {
             var mockBrowser = new Mock<Browser>();
             BrowserHelper.Browser = mockBrowser.Object;
-            BrowserHelper.Start();
             var testPage = BrowserHelper.OnPage<TestPage>();
             Assert.That(testPage.NumberOfTimesVaildCalled, Is.EqualTo(1));
         }
@@ -80,7 +67,6 @@ namespace Prometheus.Tests
         {
             var mockBrowser = new Mock<Browser>();
             BrowserHelper.Browser = mockBrowser.Object;
-            BrowserHelper.Start();
             BrowserHelper.GoToPage<UrlParamPage>("hello");
             mockBrowser.Verify(browser => browser.GoTo(new Uri(@"http://www.fake-url.com?input=hello")), Times.Once());
         }
@@ -91,7 +77,6 @@ namespace Prometheus.Tests
         {
             var mockBrowser = new Mock<Browser>();
             BrowserHelper.Browser = mockBrowser.Object;
-            BrowserHelper.Start();
             BrowserHelper.OnPage<InvalidPage>();
         } 
     }

@@ -26,7 +26,7 @@ namespace Prometheus.Example.Features
         {
             var googleResultsPage = BrowserHelper.OnPage<GoogleResultsPage>();
             var actualTitle = BrowserHelper.Browser.Title;
-            var expectedEnding = googleResultsPage.ExpectedTitle();
+            var expectedEnding = googleResultsPage.ExpectedTitle;
 
             Assert.True(actualTitle.EndsWith(expectedEnding), "Title '{0}' doesn't end with the expected ending '{1}'", actualTitle, expectedEnding);
         }

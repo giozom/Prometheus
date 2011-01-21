@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using Prometheus.ExtensionMethods;
 using WatiN.Core;
 
 namespace Prometheus.Example.Pages
@@ -24,7 +25,7 @@ namespace Prometheus.Example.Pages
 
         public void Search(string searchQuery)
         {
-            TextBoxSearch.TypeText(searchQuery);
+            TextBoxSearch.Set(searchQuery);
             ButtonSearch.Click();
         }
     }

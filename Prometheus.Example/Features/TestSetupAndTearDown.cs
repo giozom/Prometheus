@@ -9,7 +9,6 @@ namespace Prometheus.Example.Features
         [SetUp]
         public void SetUp()
         {
-            BrowserHelper.Start();
         }
 
         [TearDown]

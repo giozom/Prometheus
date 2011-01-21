@@ -57,6 +57,7 @@
     <Compile Include="TestFixtures\InvalidPage.cs" />
     <Compile Include="TestFixtures\TestPage.cs" />
     <Compile Include="TestFixtures\UrlParamPage.cs" />
+    <Compile Include="WatiNExtensionTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prometheus\Prometheus.csproj">

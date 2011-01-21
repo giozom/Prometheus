@@ -5,26 +5,32 @@ namespace Prometheus
 {
     public static class BrowserHelper
     {
-        public static Browser Browser { get; set; } 
- 
-        public static void Start()
+        private static Browser _browser;
+
+        public static Browser Browser
         {
-            if (Browser == null)
+            get
             {
-                Browser = new IE();
+                if (_browser == null)
+                {
+                    _browser = new IE();
+                    _browser.BringToFront();
+                }
+                
+                return _browser;
             }
-            Browser.BringToFront();
+            set { _browser = value; }
         }
 
         public static TPage GoToPage<TPage>(params string[] args) where TPage : BasePage, new()
         {
-            Browser.GoTo(new TPage {Browser = Browser}.Url(args));
+            Browser.GoTo(new TPage { Browser = Browser }.Url(args));
             return OnPage<TPage>();
         }
 
         public static TPage OnPage<TPage>() where TPage : BasePage, new()
         {
-            var page = new TPage {Browser = Browser};
+            var page = new TPage { Browser = Browser };
             page.Browser = Browser;
             if (page.Valid() != true)
             {
