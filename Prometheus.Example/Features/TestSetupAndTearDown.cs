@@ -14,7 +14,7 @@ namespace Prometheus.Example.Features
         [TearDown]
         public void TearDown()
         {
-            BrowserHelper.Browser.Close();
+            BaseSteps.Browser.Close();
         }
     }
 }

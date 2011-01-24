@@ -51,15 +51,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasePageTests.cs" />
-    <Compile Include="BrowserHelperTests.cs" />
+    <Compile Include="BaseStepsTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestFixtures\BlankPage.cs" />
     <Compile Include="TestFixtures\InvalidPage.cs" />
     <Compile Include="TestFixtures\TestPage.cs" />
     <Compile Include="TestFixtures\UrlParamPage.cs" />
-    <Compile Include="WatiNExtensionTests.cs" />
+    <Compile Include="WatiNExtensionSetTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Prometheus.Example\Prometheus.Example.csproj">
+      <Project>{7295A0CF-4DBC-4E30-B410-35316E105DA7}</Project>
+      <Name>Prometheus.Example</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Prometheus\Prometheus.csproj">
       <Project>{F9B28F71-3383-4C57-9FC7-FBD77D8BE355}</Project>
       <Name>Prometheus</Name>

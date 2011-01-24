@@ -44,7 +44,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BasePage.cs" />
-    <Compile Include="BrowserHelper.cs" />
     <Compile Include="ExtensionMethods\WatiNExtensions.cs" />
     <Compile Include="PageNotValidException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

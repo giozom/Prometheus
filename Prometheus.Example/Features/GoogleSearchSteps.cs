@@ -6,25 +6,25 @@ using TechTalk.SpecFlow;
 namespace Prometheus.Example.Features
 {
     [Binding]
-    class GoogleSearchSteps
+    public class GoogleSearchSteps : BaseSteps
     {
 
         [Given(@"I'm on the google australia search page")]
         public void GivenImOnTheGoogleAustraliaSearchPage()
         {            
-           BrowserHelper.GoToPage<GoogleSearchPage>();
+           GoTo<GoogleSearchPage>();
         }
 
         [When(@"I search for ""(.*)""")]
         public void WhenISearchFor(string searchQuery)
         {
-            BrowserHelper.OnPage<GoogleSearchPage>().Search(searchQuery);
+            On<GoogleSearchPage>().Search(searchQuery);
         }
 
         [Then(@"the first result title should be ""(.*)""")]
         public void ThenTheFirstResultTitleShouldbe(string expectedTitle)
         {
-            var googleResultPage = BrowserHelper.OnPage<GoogleResultsPage>();
+            var googleResultPage = On<GoogleResultsPage>();
             Assert.That(googleResultPage.SearchResults[0].TitleText, Is.EqualTo(expectedTitle));
         }
 
