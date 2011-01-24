@@ -1,9 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
+using Prometheus.Example.DomainModel;
+using WatiN.Core;
 
 namespace Prometheus.Example.Pages
 {
+    //If I was doing this for real I would pay attention to the map, image and youtube results
     public class GoogleResultsPage : BasePage
     {
+        public List<SearchResult> SearchResults = new List<SearchResult>();
+        private Div DivSearchResults { get { return Browser.Div(Find.ById("res")); }}
+        private IEnumerable<Div> AllSearchResults { get { return DivSearchResults.Divs.Filter(Find.ByClass("vsc")); } }
+
+        public override string ExpectedTitle { get { return " - Google Search"; } }
+
         public override Uri Url(params string[] args)
         {
             if (args.Length != 1)
@@ -15,9 +25,20 @@ namespace Prometheus.Example.Pages
 
         public override bool Valid()
         {
+            ParseSearchResults();
             return true;
         }
-        public override string ExpectedTitle { get { return " - Google Search"; } }
-
+        
+        private void ParseSearchResults()
+        {
+            foreach (var htmlResult in AllSearchResults)
+            {
+                var result = new SearchResult();
+                var titleLink = htmlResult.Link(Find.ByClass("l"));
+                result.TitleText = titleLink.Text;
+                result.TitleLink = new Uri(titleLink.Url);
+                SearchResults.Add(result);
+            }
+        }
     }
 }

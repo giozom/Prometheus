@@ -4,4 +4,4 @@
 Scenario: Search for "ThoughtWorks"
 	Given I'm on the google australia search page
 	When I search for "ThoughtWorks"
-	Then the results page title should be "ThoughtWorks - Google Search"
+	Then the first result title should be "www.thoughtworks.com"

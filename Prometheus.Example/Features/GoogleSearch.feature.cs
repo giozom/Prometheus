@@ -66,7 +66,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 6
  testRunner.When("I search for \"ThoughtWorks\"");
 #line 7
- testRunner.Then("the results page title should be \"ThoughtWorks - Google Search\"");
+ testRunner.Then("the first result title should be \"www.thoughtworks.com\"");
 #line hidden
             testRunner.CollectScenarioErrors();
         }

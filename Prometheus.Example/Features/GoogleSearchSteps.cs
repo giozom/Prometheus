@@ -21,14 +21,14 @@ namespace Prometheus.Example.Features
             BrowserHelper.OnPage<GoogleSearchPage>().Search(searchQuery);
         }
 
-        [Then(@"the results page title should be ""(.*)""")]
-        public void ThenTheResultsPageTitleShouldBe(string expectedTitle)
+        [Then(@"the first result title should be ""(.*)""")]
+        public void ThenTheFirstResultTitleShouldbe(string expectedTitle)
         {
-            var googleResultsPage = BrowserHelper.OnPage<GoogleResultsPage>();
-            var actualTitle = BrowserHelper.Browser.Title;
-            var expectedEnding = googleResultsPage.ExpectedTitle;
-
-            Assert.True(actualTitle.EndsWith(expectedEnding), "Title '{0}' doesn't end with the expected ending '{1}'", actualTitle, expectedEnding);
+            var googleResultPage = BrowserHelper.OnPage<GoogleResultsPage>();
+            Assert.That(googleResultPage.SearchResults[0].TitleText, Is.EqualTo(expectedTitle));
         }
+
+
+
     }
 }
