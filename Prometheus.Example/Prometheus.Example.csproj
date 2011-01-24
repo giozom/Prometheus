@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Fizzler">
+      <HintPath>..\Lib\WatiNCssSelectorExtensions-0.1\Fizzler.dll</HintPath>
+    </Reference>
     <Reference Include="Interop.SHDocVw, Version=1.1.0.0, Culture=neutral, PublicKeyToken=db7cfd3acb5ad44e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <EmbedInteropTypes>False</EmbedInteropTypes>
@@ -53,17 +56,58 @@
     <Reference Include="WatiN.Core">
       <HintPath>..\Lib\WatiN.Core.dll</HintPath>
     </Reference>
+    <Reference Include="WatiNCssSelectorExtensions">
+      <HintPath>..\Lib\WatiNCssSelectorExtensions-0.1\WatiNCssSelectorExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Chrome">
+      <HintPath>..\Lib\selenium-dotnet-2.0b1\WebDriver.Chrome.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\selenium-dotnet-2.0b1\WebDriver.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Firefox">
+      <HintPath>..\Lib\selenium-dotnet-2.0b1\WebDriver.Firefox.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.IE, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\selenium-dotnet-2.0b1\WebDriver.IE.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Remote">
+      <HintPath>..\Lib\selenium-dotnet-2.0b1\WebDriver.Remote.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DomainModel\SearchResult.cs" />
     <Compile Include="Features\BaseSteps.cs" />
+    <Compile Include="NewStuff\Models\Google\SearchResults.cs" />
+    <Compile Include="NewStuff\Framework\EntryPoint.cs" />
+    <Compile Include="NewStuff\Models\Google\Home.cs" />
     <Compile Include="Features\GoogleSearch.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>GoogleSearch.feature</DependentUpon>
     </Compile>
     <Compile Include="Features\GoogleSearchSteps.cs" />
+    <Compile Include="NewStuff\GoogleSearch.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoogleSearch.feature</DependentUpon>
+    </Compile>
+    <Compile Include="NewStuff\GoogleSearchSteps.cs" />
+    <Compile Include="NewStuff\Framework\Wait.cs" />
+    <Compile Include="NewStuff\WatiN\HtmlElement.cs" />
+    <Compile Include="NewStuff\WatiN\HtmlPageElement.cs" />
+    <Compile Include="NewStuff\WebDriver\HtmlElement.cs" />
+    <Compile Include="NewStuff\Framework\HtmlModel.cs" />
+    <Compile Include="NewStuff\Framework\HtmlPage.cs" />
+    <Compile Include="NewStuff\Framework\IBrowser.cs" />
+    <Compile Include="NewStuff\Framework\IHtmlElement.cs" />
     <Compile Include="Features\TestSetupAndTearDown.cs" />
+    <Compile Include="NewStuff\Framework\NonExistentElement.cs" />
+    <Compile Include="NewStuff\WatiN\Browser.cs" />
+    <Compile Include="NewStuff\WebDriver\Browser.cs" />
+    <Compile Include="NewStuff\WebTestBase.cs" />
     <Compile Include="Pages\GoogleResultsPage.cs" />
     <Compile Include="Pages\GoogleSearchPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +115,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="Features\GoogleSearch.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GoogleSearch.feature.cs</LastGenOutput>
+    </None>
+    <None Include="NewStuff\GoogleSearch.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>GoogleSearch.feature.cs</LastGenOutput>
     </None>
