@@ -4,9 +4,9 @@ namespace Prometheus.Example.NewStuff.Models.Google
 {
     public class SearchResults : HtmlPage
     {
-        public bool IsLoaded
+        public bool IsLoaded()
         {
-            get { return PageTitle.EndsWith(" - Google Search"); }
+            return PageTitle.EndsWith(" - Google Search");
         }
     }
 }

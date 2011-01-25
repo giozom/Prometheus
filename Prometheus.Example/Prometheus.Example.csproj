@@ -80,6 +80,8 @@
   <ItemGroup>
     <Compile Include="DomainModel\SearchResult.cs" />
     <Compile Include="Features\BaseSteps.cs" />
+    <Compile Include="NewStuff\Framework\HtmlFragment.cs" />
+    <Compile Include="NewStuff\Framework\IHtmlElementSelector.cs" />
     <Compile Include="NewStuff\Models\Google\SearchResults.cs" />
     <Compile Include="NewStuff\Framework\EntryPoint.cs" />
     <Compile Include="NewStuff\Models\Google\Home.cs" />
@@ -107,7 +109,7 @@
     <Compile Include="NewStuff\Framework\NonExistentElement.cs" />
     <Compile Include="NewStuff\WatiN\Browser.cs" />
     <Compile Include="NewStuff\WebDriver\Browser.cs" />
-    <Compile Include="NewStuff\WebTestBase.cs" />
+    <Compile Include="NewStuff\WebStepsBase.cs" />
     <Compile Include="Pages\GoogleResultsPage.cs" />
     <Compile Include="Pages\GoogleSearchPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

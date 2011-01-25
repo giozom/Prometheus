@@ -2,12 +2,8 @@
 
 namespace Prometheus.Example.NewStuff.Framework
 {
-    public interface IBrowser
+    public interface IBrowser : IHtmlElementSelector
     {
         void GoTo(string url);
-
-        IHtmlElement GetElement(string cssSelector);
-
-        IEnumerable<IHtmlElement> GetElements(string cssSelector);
     }
 }

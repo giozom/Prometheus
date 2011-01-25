@@ -4,7 +4,7 @@
     {
         private IBrowser _browser;
 
-        public HtmlPage OnBrowser(IBrowser browser)
+        public HtmlPage On(IBrowser browser)
         {
             _browser = browser;
             return this;
@@ -12,7 +12,12 @@
 
         protected override IHtmlElement RootElement
         {
-            get { return _browser.GetElement("html"); }
+            get { return _browser.GetElement(CssSelector); }
+        }
+
+        protected override string CssSelector
+        {
+            get { return "html"; }
         }
 
         public string PageTitle

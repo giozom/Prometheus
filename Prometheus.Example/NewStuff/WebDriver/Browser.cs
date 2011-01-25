@@ -11,7 +11,7 @@ namespace Prometheus.Example.NewStuff.WebDriver
 {
     public class Browser : IBrowser
     {
-        private readonly IWebDriver _driver = new FirefoxDriver();
+        private readonly IWebDriver _driver = new ChromeDriver();
 
         public void GoTo(string url)
         {

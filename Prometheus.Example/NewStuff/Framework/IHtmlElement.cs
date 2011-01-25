@@ -1,15 +1,10 @@
-﻿using System.Collections.Generic;
-
-namespace Prometheus.Example.NewStuff.Framework
+﻿namespace Prometheus.Example.NewStuff.Framework
 {
-    public interface IHtmlElement
+    public interface IHtmlElement : IHtmlElementSelector
     {
         string Text { get; }
         void Click();
         void Type(string text);
         void ShiftFocus();
-
-        IHtmlElement GetElement(string cssSelector);
-        IEnumerable<IHtmlElement> GetElements(string cssSelector);
     }
 }

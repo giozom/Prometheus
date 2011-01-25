@@ -4,9 +4,8 @@ using Prometheus.Tests.TestFixtures;
 
 namespace Prometheus.Tests
 {
-    class BasePageTests
+    internal class BasePageTests
     {
-        
         [Test]
         public void ShouldUseThePageObjectsUrl()
         {
@@ -15,19 +14,23 @@ namespace Prometheus.Tests
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "'Prometheus.Tests.TestFixtures.BlankPage' Does Not have a 'Url' property.")]
         public void ShouldThrowAnExceptionIfUrlNotOverridedInThePageObject()
         {
             var blankPage = new BlankPage();
-            var notUsed = blankPage.Url();
+            Assert.Throws<NotImplementedException>(() => blankPage.Url(),
+                                                   "'Prometheus.Tests.TestFixtures.BlankPage' Does Not have a 'Url' property.");
+//            var notUsed = blankPage.Url();
         }
 
         [Test]
-        [ExpectedException(typeof(NotImplementedException), ExpectedMessage = "'Prometheus.Tests.TestFixtures.BlankPage' Does Not have a 'ExpectedTitle' property.")]
+//        [ExpectedException(typeof(NotImplementedException),
+//            ExpectedMessage = "'Prometheus.Tests.TestFixtures.BlankPage' Does Not have a 'ExpectedTitle' property.")]
         public void ShouldThrowAnExceptionIfTitleNotOverridedInThePageObject()
         {
             var blankPage = new BlankPage();
-            var notUsed = blankPage.ExpectedTitle;
+            string expectedTitle;
+            Assert.Throws<NotImplementedException>(() => expectedTitle = blankPage.ExpectedTitle,
+                                                   "'Prometheus.Tests.TestFixtures.BlankPage' Does Not have a 'Url' property.");
         }
     }
 }
