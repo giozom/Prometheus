@@ -1,7 +1,7 @@
 ﻿using System;
 using WatiN.Core;
 
-namespace Prometheus.Example.Features
+namespace Prometheus
 {
     public class BaseSteps
     {

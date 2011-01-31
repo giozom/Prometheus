@@ -1,7 +1,6 @@
 ﻿using System;
 using Moq;
 using NUnit.Framework;
-using Prometheus.Example.Features;
 using Prometheus.Tests.TestFixtures;
 using WatiN.Core;
 
