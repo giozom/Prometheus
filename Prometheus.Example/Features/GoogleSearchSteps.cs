@@ -26,8 +26,5 @@ namespace Prometheus.Example.Features
             var googleResultPage = On<GoogleResultsPage>();
             Assert.That(googleResultPage.SearchResults[0].TitleText, Is.EqualTo(expectedTitle));
         }
-
-
-
     }
 }

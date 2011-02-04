@@ -57,7 +57,8 @@
     <Compile Include="TestFixtures\InvalidPage.cs" />
     <Compile Include="TestFixtures\TestPage.cs" />
     <Compile Include="TestFixtures\UrlParamPage.cs" />
-    <Compile Include="WatiNExtensionSetTests.cs" />
+    <Compile Include="WatiNExtensionTests\SetTests.cs" />
+    <Compile Include="WatiNExtensionTests\ToTextTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prometheus.Example\Prometheus.Example.csproj">
@@ -68,6 +69,9 @@
       <Project>{F9B28F71-3383-4C57-9FC7-FBD77D8BE355}</Project>
       <Name>Prometheus</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="WatiNExtensionTests\App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

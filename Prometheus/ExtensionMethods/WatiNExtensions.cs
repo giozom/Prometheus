@@ -8,5 +8,16 @@ namespace Prometheus.ExtensionMethods
         {
             element.SetAttributeValue("value", inputText);
         }
+
+        public static string ToText(this Element element)
+        {
+            var text = element.Text;
+            if (string.IsNullOrEmpty(text))
+            {
+                text = string.Empty;
+            }
+            
+            return text.Trim();
+        }
     }
 }

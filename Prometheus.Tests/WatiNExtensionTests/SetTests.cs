@@ -1,20 +1,21 @@
 ﻿using Moq;
 using NUnit.Framework;
-using WatiN.Core;
 using Prometheus.ExtensionMethods;
+using WatiN.Core;
 using WatiN.Core.Native;
 
-namespace Prometheus.Tests
+namespace Prometheus.Tests.WatiNExtensionTests
 {
     [TestFixture]
-    public class WatiNExtensionSetTests
+    public class SetTests
     {
         [Test]
         public void ShouldSetTheText()
         {
             var textField = new Mock<TextField>(new Mock<DomContainer>().Object, new Mock<INativeElement>().Object);
             textField.Object.Set("hello");
-            textField.Verify(x => x.SetAttributeValue("value", "hello"), Times.AtLeastOnce());
+
+            textField.Verify(x => x.SetAttributeValue("value", "hello"), Times.Once());
         }
 
         [Test]
@@ -22,7 +23,8 @@ namespace Prometheus.Tests
         {
             var textField = new Mock<TextField>(new Mock<DomContainer>().Object, new Mock<INativeElement>().Object);
             textField.Object.Set(string.Empty);
-            textField.Verify(x => x.SetAttributeValue("value", string.Empty), Times.AtLeastOnce());    
+
+            textField.Verify(x => x.SetAttributeValue("value", string.Empty), Times.Once());    
         }
     }
 }

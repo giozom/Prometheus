@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Prometheus.Example.DomainModel;
+using Prometheus.ExtensionMethods;
 using WatiN.Core;
 
 namespace Prometheus.Example.Pages
@@ -35,7 +36,7 @@ namespace Prometheus.Example.Pages
             {
                 var result = new SearchResult();
                 var titleLink = htmlResult.Link(Find.ByClass("l"));
-                result.TitleText = titleLink.Text;
+                result.TitleText = titleLink.ToText();
                 result.TitleLink = new Uri(titleLink.Url);
                 SearchResults.Add(result);
             }
