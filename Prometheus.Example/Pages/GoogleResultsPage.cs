@@ -26,6 +26,7 @@ namespace Prometheus.Example.Pages
 
         public override bool Valid()
         {
+            HtmlPage.WaitUntilContainsText("Searches related to");
             ParseSearchResults();
             return true;
         }
