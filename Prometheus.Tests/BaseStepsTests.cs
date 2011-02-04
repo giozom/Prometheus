@@ -31,7 +31,7 @@ namespace Prometheus.Tests
             var mockBrowser = new Mock<Browser>();
             BaseSteps.Browser = mockBrowser.Object;
             var returnedPage = BaseSteps.GoTo<TestPage>();
-            Assert.That(returnedPage.Browser, Is.EqualTo(mockBrowser.Object));
+            Assert.That(returnedPage.HtmlPage, Is.EqualTo(mockBrowser.Object));
         }
 
         [Test]

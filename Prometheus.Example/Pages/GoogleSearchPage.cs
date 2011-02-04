@@ -7,8 +7,8 @@ namespace Prometheus.Example.Pages
 {
     class GoogleSearchPage : BasePage
     {
-        private TextField TextBoxSearch { get { return Browser.TextField(Find.ByName("q")); } }
-        private Button ButtonSearch { get { return Browser.Button(Find.ByName("btnG")); } }
+        private TextField TextBoxSearch { get { return HtmlPage.TextField(Find.ByName("q")); } }
+        private Button ButtonSearch { get { return HtmlPage.Button(Find.ByName("btnG")); } }
 
         public override string ExpectedTitle { get { return "Google"; } }
 
@@ -19,7 +19,7 @@ namespace Prometheus.Example.Pages
 
         public override bool Valid()
         {
-            Assert.That(Browser.Title, Is.EqualTo(ExpectedTitle));
+            Assert.That(HtmlPage.Title, Is.EqualTo(ExpectedTitle));
             return true;
         }
 

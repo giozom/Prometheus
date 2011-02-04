@@ -10,7 +10,7 @@ namespace Prometheus.Example.Pages
     public class GoogleResultsPage : BasePage
     {
         public List<SearchResult> SearchResults = new List<SearchResult>();
-        private Div DivSearchResults { get { return Browser.Div(Find.ById("res")); }}
+        private Div DivSearchResults { get { return HtmlPage.Div(Find.ById("res")); }}
         private IEnumerable<Div> AllSearchResults { get { return DivSearchResults.Divs.Filter(Find.ByClass("vsc")); } }
 
         public override string ExpectedTitle { get { return " - Google Search"; } }

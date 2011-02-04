@@ -7,14 +7,14 @@ namespace Prometheus
     {
         public static TPage GoTo<TPage>(params string[] args) where TPage : BasePage, new()
         {
-            Browser.GoTo(new TPage { Browser = Browser }.Url(args));
+            Browser.GoTo(new TPage { HtmlPage = Browser }.Url(args));
             return On<TPage>();
         }
 
         public static TPage On<TPage>() where TPage : BasePage, new()
         {
-            var page = new TPage { Browser = Browser };
-            page.Browser = Browser;
+            var page = new TPage { HtmlPage = Browser };
+            page.HtmlPage = Browser;
             if (page.Valid() != true)
             {
                 throw new PageNotValidException(String.Format("Page '{0}' is invalid.", page.GetType().FullName));
