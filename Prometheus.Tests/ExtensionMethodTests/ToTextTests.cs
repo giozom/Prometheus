@@ -4,7 +4,7 @@ using Prometheus.ExtensionMethods;
 using WatiN.Core;
 using WatiN.Core.Native;
 
-namespace Prometheus.Tests.WatiNExtensionTests
+namespace Prometheus.Tests.ExtensionMethodTests
 {
     [TestFixture]
     public class ToTextTests

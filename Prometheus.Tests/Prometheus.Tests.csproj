@@ -45,6 +45,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="TechTalk.SpecFlow, Version=1.5.0.0, Culture=neutral, PublicKeyToken=0778194805d6db41, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Lib\TechTalk.SpecFlow.dll</HintPath>
+    </Reference>
     <Reference Include="WatiN.Core">
       <HintPath>..\Lib\WatiN.Core.dll</HintPath>
     </Reference>
@@ -52,13 +56,14 @@
   <ItemGroup>
     <Compile Include="BasePageTests.cs" />
     <Compile Include="BaseStepsTests.cs" />
+    <Compile Include="ExtensionMethodTests\GetColumnTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestFixtures\BlankPage.cs" />
     <Compile Include="TestFixtures\InvalidPage.cs" />
     <Compile Include="TestFixtures\TestPage.cs" />
     <Compile Include="TestFixtures\UrlParamPage.cs" />
-    <Compile Include="WatiNExtensionTests\SetTests.cs" />
-    <Compile Include="WatiNExtensionTests\ToTextTests.cs" />
+    <Compile Include="ExtensionMethodTests\SetTests.cs" />
+    <Compile Include="ExtensionMethodTests\ToTextTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Prometheus.Example\Prometheus.Example.csproj">

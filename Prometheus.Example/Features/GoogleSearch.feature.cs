@@ -53,11 +53,11 @@ namespace Prometheus.Example.Features
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Search for \"ThoughtWorks\"")]
+        [NUnit.Framework.DescriptionAttribute("Search for ThoughtWorks")]
         [NUnit.Framework.CategoryAttribute("search")]
         public virtual void SearchForThoughtWorks()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for \"ThoughtWorks\"", new string[] {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Search for ThoughtWorks", new string[] {
                         "search"});
 #line 4
 this.ScenarioSetup(scenarioInfo);
